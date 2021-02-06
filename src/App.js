@@ -7,16 +7,15 @@ import NavBar from "./navBar/navBar";
 
 function App() {
   return (
-    <UseQueryParams />
-    // <BrowserRouter>
-    //   <div className="App">
-    //     <NavBar />
-    //     <Switch>
-    //       <Route path="/" exact component={Home} />
-    //       <Route path="/subreddit/pics" exact component={Pics} />
-    //     </Switch>
-    //   </div>
-    // </BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        <NavBar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/subreddit/pics" exact component={Pics} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
