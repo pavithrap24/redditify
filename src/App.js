@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./container/Home";
 import Pics from "./container/Pics";
-import UseQueryParams from "./hook/useQueryParams/useQueryParams";
 import NavBar from "./navBar/navBar";
 
 function App() {
