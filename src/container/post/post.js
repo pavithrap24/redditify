@@ -3,7 +3,6 @@ import axios from "axios";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
 import CommentIcon from "@material-ui/icons/Comment";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import {
   Grid,
   Typography,
