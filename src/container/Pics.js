@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Anchor from "../component/Anchor";
+import moment from "moment";
+import axios from "axios";
 import {
   Grid,
   Typography,
@@ -9,8 +12,6 @@ import {
 } from "@material-ui/core";
 import CommentIcon from "@material-ui/icons/Comment";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import axios from "axios";
-import moment from "moment";
 
 function Pics() {
   const [result, setResult] = useState([]);
@@ -47,7 +48,9 @@ function Pics() {
             Posted by {item.data.author_fullname}{" "}
             {moment.unix(item.data.created_utc).fromNow()}
           </Typography>
-          <Typography>{item.data.title}</Typography>
+          <Typography>
+            <Anchor to={item.data.permalink}>{item.data.title}</Anchor>
+          </Typography>
           <a href={item.data.url} style={{ textDecoration: "none" }}>
             <Typography variant="subtitle1" style={{ fontSize: "10px" }}>
               {item.data.url}
@@ -58,7 +61,7 @@ function Pics() {
             badgeContent={item.data.num_comments}
             color="primary"
             style={{ marginTop: "1em" }}
-            max="99999999999"
+            max={99999999999}
           >
             <CommentIcon />
           </Badge>
@@ -66,7 +69,7 @@ function Pics() {
             badgeContent={item.data.ups}
             color="primary"
             style={{ marginTop: "1em" }}
-            max="99999999999"
+            max={99999999999}
           >
             <ArrowUpwardIcon style={{ paddingLeft: "1em" }} />
           </Badge>
