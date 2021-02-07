@@ -58,6 +58,7 @@ function Pics() {
             badgeContent={item.data.num_comments}
             color="primary"
             style={{ marginTop: "1em" }}
+            max="99999999999"
           >
             <CommentIcon />
           </Badge>
@@ -65,6 +66,7 @@ function Pics() {
             badgeContent={item.data.ups}
             color="primary"
             style={{ marginTop: "1em" }}
+            max="99999999999"
           >
             <ArrowUpwardIcon style={{ paddingLeft: "1em" }} />
           </Badge>
