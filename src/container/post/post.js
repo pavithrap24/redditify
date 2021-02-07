@@ -2,17 +2,29 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
-import { Grid, Typography, Container, Paper } from "@material-ui/core";
+import CommentIcon from "@material-ui/icons/Comment";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import {
+  Grid,
+  Typography,
+  Container,
+  Paper,
+  IconButton,
+  Divider,
+} from "@material-ui/core";
+import Comments from "../comments/comments";
 
 function Post() {
   const pathname = window.location.pathname;
   const [post, setPost] = useState([]);
+  const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState();
 
   useEffect(() => {
     setLoading(true);
     axios.get(`https://www.reddit.com/${pathname}.json`).then(({ data }) => {
       setPost(data[0].data.children);
+      setComments(data[1].data.children);
       setLoading(false);
     });
   }, [pathname]);
@@ -27,6 +39,16 @@ function Post() {
           </Typography>
           <Typography>{post.data.title}</Typography>
           <ReactMarkdown source={post.data.selftext} />
+          <img src={post.data.url} alt="" style={{ width: "50%" }} />
+          <Divider />
+          <IconButton>
+            <CommentIcon style={{ padding: "0.1em" }} />
+            <Typography>{post.data.num_comments} comments</Typography>
+          </IconButton>
+          <Divider />
+          <Grid item>
+            <Comments allComments={comments} />
+          </Grid>
         </Paper>
       </Grid>
     );

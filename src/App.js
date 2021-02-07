@@ -14,7 +14,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/subreddit/pics" exact component={Pics} />
           <Route
-            path="/r/pics/comments/:fullname/:post/"
+            path="/r/:subreddit/comments/:fullname/:post/"
             exact
             component={Post}
           />
