@@ -16,7 +16,7 @@ function Comments({ allComments }) {
 
   let commentsRecursive = (allComments) => {
     return allComments.map((p) => {
-      if (p.data.replies !== "") {
+      if (p.data.replies !== undefined && p.data.replies !== "") {
         return (
           <>
             {comment(p)}
