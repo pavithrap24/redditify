@@ -15,7 +15,7 @@ function Comment({ author, createdUTC, body }) {
           >
             {author} {moment.unix(createdUTC).fromNow()}
           </Typography>
-          <Typography>{body}</Typography>
+          <Typography noWrap>{body}</Typography>
         </Grid>
       </Grid>
     </>

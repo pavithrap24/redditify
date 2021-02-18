@@ -13,9 +13,9 @@ function NavBar() {
           <Anchor to="/">
             <Typography style={style}>Redditify</Typography>
           </Anchor>
-          <Anchor to="/favorites">
+          {/* <Anchor to="/favorites">
             <Typography style={style}>Favorites</Typography>
-          </Anchor>
+          </Anchor> */}
         </Toolbar>
       </AppBar>
       <Toolbar />

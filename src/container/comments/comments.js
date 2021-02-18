@@ -1,6 +1,8 @@
 import React from "react";
 import { Divider } from "@material-ui/core";
 import Comment from "./comment/comment";
+import OrderedList from "../../component/OrderedList";
+import UnorderedList from "../../component/UnorderedList";
 
 function Comments({ allComments }) {
   const comment = (p) => {
@@ -19,9 +21,15 @@ function Comments({ allComments }) {
       if (p.data.replies !== undefined && p.data.replies !== "") {
         return (
           <>
-            {comment(p)}
-            {p.data.replies.data.children !== "" &&
-              commentsRecursive(p.data.replies.data.children)}
+            <OrderedList style={{ listStyle: "none" }}>
+              {comment(p)}
+            </OrderedList>
+            <UnorderedList style={{ listStyle: "none" }}>
+              <OrderedList style={{ listStyle: "none" }}>
+                {p.data.replies.data.children !== "" &&
+                  commentsRecursive(p.data.replies.data.children)}
+              </OrderedList>
+            </UnorderedList>
           </>
         );
       }
